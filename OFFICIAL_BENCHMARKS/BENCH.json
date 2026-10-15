@@ -1,0 +1,801 @@
+{
+  "schema": "anticloud.tier-bench/1",
+  "project": "JABREF",
+  "source": {
+    "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\ANTICLOUD_REPOS\\ACADEMIA_RD\\JABREF\\UPSTREAM_CLONE",
+    "git": {
+      "head": "338a4d5b8eef781e401150e1195a38505922be8e",
+      "url": "https://github.com/JabRef/jabref",
+      "branch": "main",
+      "committed_at": "2026-10-02T00:11:30+02:00"
+    }
+  },
+  "metrics": {
+    "files_total": 4529,
+    "source_files_scanned": 3151,
+    "lines_of_code": 375710,
+    "languages": {
+      ".java": 3131,
+      ".bib": 237,
+      ".md": 215,
+      ".layout": 160,
+      ".xml": 108,
+      ".fxml": 96,
+      ".pdf": 74,
+      ".png": 71,
+      "(none)": 59,
+      ".txt": 52,
+      ".properties": 43,
+      ".kts": 28,
+      ".json": 23,
+      ".tex": 22,
+      ".yml": 19
+    }
+  },
+  "licence": {
+    "spdx": "MIT",
+    "class": "A",
+    "source_file": "LICENSE",
+    "redistribution_allowed": true
+  },
+  "dependencies": {
+    "count": 2,
+    "unique": 2,
+    "by_ecosystem": {
+      "npm": 2
+    },
+    "list": [
+      {
+        "ecosystem": "npm",
+        "name": "textlint",
+        "version": "^15.7.1",
+        "source_file": "package.json",
+        "raw": ""
+      },
+      {
+        "ecosystem": "npm",
+        "name": "textlint-rule-common-misspellings",
+        "version": "^1.0.1",
+        "source_file": "package.json",
+        "raw": ""
+      }
+    ]
+  },
+  "owasp_top10": {
+    "total_findings": 477,
+    "files_with_findings": 457,
+    "severity": {
+      "high": 15,
+      "medium": 3,
+      "low": 459
+    },
+    "categories": {
+      "A01-BrokenAccessControl": {
+        "count": 0,
+        "findings": []
+      },
+      "A02-CryptographicFailures": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "jabgui/src/test/java/org/jabref/gui/edit/ManageKeywordsViewModelTest.java",
+            "line": 33,
+            "cwe": "CWE-327",
+            "snippet": ".withField(StandardField.DOI, \"10.1109/PARC49193.2020.236624\")"
+          }
+        ]
+      },
+      "A03-Injection": {
+        "count": 8,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "jablib/src/main/java/org/jabref/logic/search/query/SearchToSqlVisitor.java",
+            "line": 88,
+            "cwe": "CWE-89",
+            "snippet": "children.stream().map(node -> \"    SELECT %s FROM %s\".formatted(ENTRY_ID, node.cte())).collect(Collectors.joining(\"\\n    INTERSECT\\n\")));"
+          },
+          {
+            "severity": "medium",
+            "file": "jablib/src/main/java/org/jabref/logic/exporter/AcademicPagesExporter.java",
+            "line": 248,
+            "cwe": "CWE-89",
+            "snippet": "return DateTimeFormatter.ofPattern(\"uuuu-MM\").format(temporal) + \"-01\";"
+          },
+          {
+            "severity": "high",
+            "file": "jabgui/src/main/java/org/jabref/gui/openoffice/Bootstrap.java",
+            "line": 275,
+            "cwe": "CWE-95",
+            "snippet": "Process p = Runtime.getRuntime().exec(cmdArray);"
+          },
+          {
+            "severity": "medium",
+            "file": "jabgui/src/main/java/org/jabref/gui/groups/GroupTreeView.java",
+            "line": 697,
+            "cwe": "CWE-89",
+            "snippet": "return new DecimalFormat(\"#,##0.#\").format(millions) + \"m\";"
+          },
+          {
+            "severity": "medium",
+            "file": "jabgui/src/main/java/org/jabref/gui/externalfiles/ImportHandler.java",
+            "line": 315,
+            "cwe": "CWE-89",
+            "snippet": "Localization.lang(\"No importable data was found in %0. An empty entry was created with file link.\", importResult.format())\n                                + \" \""
+          },
+          {
+            "severity": "high",
+            "file": "jabgui/src/main/java/org/jabref/gui/entryeditor/UserDefinedFieldsTab.java",
+            "line": 109,
+            "cwe": "CWE-120",
+            "snippet": "// which editor implementation a field gets (FieldEditors.getForField chooses per entry"
+          },
+          {
+            "severity": "high",
+            "file": "jabgui/src/main/java/org/jabref/gui/desktop/os/Linux.java",
+            "line": 46,
+            "cwe": "CWE-95",
+            "snippet": "Runtime.getRuntime().exec(cmd);"
+          },
+          {
+            "severity": "high",
+            "file": "jabgui/src/main/java/org/jabref/gui/desktop/os/OSX.java",
+            "line": 28,
+            "cwe": "CWE-95",
+            "snippet": "Runtime.getRuntime().exec(cmd);"
+          }
+        ]
+      },
+      "A04-InsecureDesign": {
+        "count": 325,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "test-support/src/main/java/org/jabref/support/BibEntryAssert.java",
+            "line": 25,
+            "cwe": "CWE-",
+            "snippet": "/// TODO: Make this a \"public\" class to enable jablib consumers benefitting from it, too."
+          },
+          {
+            "severity": "low",
+            "file": "jabsrv-cli/src/main/java/module-info.java",
+            "line": 18,
+            "cwe": "CWE-",
+            "snippet": "provides com.airhacks.afterburner.views.ResourceLocator"
+          },
+          {
+            "severity": "low",
+            "file": "jabsrv-cli/src/main/java/org/jabref/http/cli/JabRefResourceLocator.java",
+            "line": 7,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ResourceLocator;"
+          },
+          {
+            "severity": "low",
+            "file": "jabsrv/src/test/java/org/jabref/http/JabSrvArchitectureTest.java",
+            "line": 22,
+            "cwe": "CWE-",
+            "snippet": ".should().dependOnClassesThat().resideInAPackage(\"com.airhacks.afterburner.injection..\")"
+          },
+          {
+            "severity": "low",
+            "file": "jabsrv/src/main/java/org/jabref/http/server/Server.java",
+            "line": 127,
+            "cwe": "CWE-",
+            "snippet": "// TODO: Add SSL"
+          },
+          {
+            "severity": "low",
+            "file": "jabsrv/src/main/java/org/jabref/http/server/resources/EntriesResource.java",
+            "line": 197,
+            "cwe": "CWE-",
+            "snippet": "/// FIXME: JabMap should serve the files per BibEntry. See <https://github.com/JabRef/jabmap/issues/56> for details"
+          },
+          {
+            "severity": "low",
+            "file": "jabsrv/src/main/java/org/jabref/http/server/resources/EntryResource.java",
+            "line": 66,
+            "cwe": "CWE-",
+            "snippet": "// TODO: Currently, the preview preferences are in GUI package, which is not accessible here."
+          },
+          {
+            "severity": "low",
+            "file": "jabsrv/src/main/java/org/jabref/http/server/cayw/CAYWResource.java",
+            "line": 385,
+            "cwe": "CWE-",
+            "snippet": "// TODO: Implement a better way to handle the window popup since this is a bit hacky."
+          },
+          {
+            "severity": "low",
+            "file": "jabls-cli/src/main/java/org/jabref/languageserver/cli/JabRefResourceLocator.java",
+            "line": 7,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ResourceLocator;"
+          },
+          {
+            "severity": "low",
+            "file": "jabls/src/main/java/org/jabref/languageserver/BibtexWorkspaceService.java",
+            "line": 39,
+            "cwe": "CWE-",
+            "snippet": "// Todo: handle event"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/model/entry/AuthorListTest.java",
+            "line": 680,
+            "cwe": "CWE-",
+            "snippet": "// TODO: Fix abbreviation to be \"A.\""
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/shared/DBMSConnectionTest.java",
+            "line": 22,
+            "cwe": "CWE-",
+            "snippet": ".setHost(\"XXXX\")"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/shared/DBMSProcessorTest.java",
+            "line": 624,
+            "cwe": "CWE-",
+            "snippet": "// TODO: maybe use a prepared statement here"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/shared/DBMSTypeTest.java",
+            "line": 52,
+            "cwe": "CWE-",
+            "snippet": "assertFalse(DBMSType.fromString(\"XXX\").isPresent());"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/openoffice/style/JStyleTest.java",
+            "line": 649,
+            "cwe": "CWE-",
+            "snippet": "// TODO: equals only work when initialized from file, not from reader"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/l10n/LocalizationConsistencyTest.java",
+            "line": 181,
+            "cwe": "CWE-",
+            "snippet": "// TODO: Forbidden Localization.lang(\"test\" + var2) not covered by the test"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/l10n/LocalizationParser.java",
+            "line": 27,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ViewLoader;"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/journals/AbbreviationsTest.java",
+            "line": 33,
+            "cwe": "CWE-",
+            "snippet": "void getNextAbbreviationConvertsAbbreviationToDotlessAbbreviation() {"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/integrity/IntegrityCheckTest.java",
+            "line": 96,
+            "cwe": "CWE-",
+            "snippet": "// FIXME: must be set as checkBibtexDatabase only activates title checker based on database mode"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/integrity/LatexIntegrityCheckerTest.java",
+            "line": 161,
+            "cwe": "CWE-",
+            "snippet": "// todo find out how to trigger / activate - is this even implemented in snuggletex?"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/importer/util/FileFieldParserTest.java",
+            "line": 68,
+            "cwe": "CWE-",
+            "snippet": "List.of(new LinkedFile(\"\", Path.of(\"C:/Users/XXXXXX/AppData/Local/Mendeley Ltd./Mendeley Desktop/Downloaded/Brown - 2017 - Physical test methods for elastomers.pdf\"), \"pdf\")),"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/importer/fileformat/BibtexParserTest.java",
+            "line": 956,
+            "cwe": "CWE-",
+            "snippet": "// TODO: We should keep @comment if it is the only \"thing\" in the file"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/importer/fileformat/pdf/PdfGrobidImporterTest.java",
+            "line": 56,
+            "cwe": "CWE-",
+            "snippet": "// TODO: Rewrite using our logic of full BibEntries"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/importer/fileformat/pdf/PdfMergeMetadataImporterTest.java",
+            "line": 114,
+            "cwe": "CWE-",
+            "snippet": "// TODO: Abstract not correct yet --> parsing logic needs to be improved"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/importer/fileformat/pdf/RuleBasedBibliographyPdfImporterTest.java",
+            "line": 154,
+            "cwe": "CWE-",
+            "snippet": ".withField(StandardField.JOURNAL, \"Fusion Eng. Des\") // TODO: Final dot should be kept"
+          }
+        ]
+      },
+      "A05-SecurityMisconfiguration": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "jabsrv/src/main/java/org/jabref/http/server/CORSFilter.java",
+            "line": 12,
+            "cwe": "CWE-942",
+            "snippet": "responseContext.getHeaders().add(\"Access-Control-Allow-Origin\", \"*\");"
+          }
+        ]
+      },
+      "A06-VulnerableComponents": {
+        "count": 0,
+        "findings": []
+      },
+      "A07-AuthFailures": {
+        "count": 8,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "jablib/src/test/java/org/jabref/logic/shared/DBMSConnectionUrlTest.java",
+            "line": 83,
+            "cwe": "CWE-798",
+            "snippet": "DBMSConnectionUrl url = DBMSConnectionUrl.parse(\"host=db.example.org port=6543 dbname=lib user=me password='it\\\\'s a b' sslmode=require\").orElseThrow();"
+          },
+          {
+            "severity": "high",
+            "file": "jablib/src/test/java/org/jabref/logic/net/ProxyTest.java",
+            "line": 19,
+            "cwe": "CWE-798",
+            "snippet": "String password = \"testPassword\";"
+          },
+          {
+            "severity": "high",
+            "file": "jablib/src/test/java/org/jabref/logic/net/ssl/TrustStoreManagerTest.java",
+            "line": 20,
+            "cwe": "CWE-798",
+            "snippet": "private static final String STORE_PASSWORD = \"changeit\";"
+          },
+          {
+            "severity": "high",
+            "file": "jablib/src/test/java/org/jabref/logic/importer/fetcher/WileyFetcherTest.java",
+            "line": 26,
+            "cwe": "CWE-798",
+            "snippet": "private static final String TEST_API_KEY = \"test-token-123\";"
+          },
+          {
+            "severity": "high",
+            "file": "jablib/src/main/java/org/jabref/logic/shared/DBMSConnectionUrl.java",
+            "line": 89,
+            "cwe": "CWE-798",
+            "snippet": "/// libpq keyword form as shown by some providers: `host=db.example.org port=5432 dbname=lib user=me password='p w'`."
+          },
+          {
+            "severity": "high",
+            "file": "jablib/src/main/java/org/jabref/logic/shared/prefs/SharedDatabasePreferences.java",
+            "line": 31,
+            "cwe": "CWE-798",
+            "snippet": "private static final String SHARED_DATABASE_PASSWORD = \"sharedDatabasePassword\";"
+          },
+          {
+            "severity": "high",
+            "file": "jablib/src/main/java/org/jabref/logic/preferences/JabRefCliPreferences.java",
+            "line": 343,
+            "cwe": "CWE-798",
+            "snippet": "// PROXY_PASSWORD = \"proxyPassword\" handled by KeyRing"
+          },
+          {
+            "severity": "high",
+            "file": "jablib/src/main/java/org/jabref/logic/net/ssl/TrustStoreManager.java",
+            "line": 34,
+            "cwe": "CWE-798",
+            "snippet": "private static final String STORE_PASSWORD = \"changeit\";"
+          }
+        ]
+      },
+      "A08-SoftwareDataIntegrity": {
+        "count": 134,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "scripts/check-http-server.py",
+            "line": 13,
+            "cwe": "CWE-319",
+            "snippet": "python scripts/check-http-server.py --base-url http://localhost:23119"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/generate_toc.rb",
+            "line": 4,
+            "cwe": "CWE-319",
+            "snippet": "# Via: http://stackoverflow.com/a/22131019/873282"
+          },
+          {
+            "severity": "low",
+            "file": "jabsrv/src/main/java/org/jabref/http/server/resources/EntryResource.java",
+            "line": 47,
+            "cwe": "CWE-319",
+            "snippet": "/// At [http://localhost:23119/libraries/){id}/entries/{entryId}](http://localhost:23119/libraries/){id}/entries/{entryId}"
+          },
+          {
+            "severity": "low",
+            "file": "jabsrv/src/main/java/org/jabref/http/server/resources/LibraryResource.java",
+            "line": 49,
+            "cwe": "CWE-319",
+            "snippet": "/// At http://localhost:23119/libraries/{id}"
+          },
+          {
+            "severity": "low",
+            "file": "jabsrv/src/main/java/org/jabref/http/server/resources/MapResource.java",
+            "line": 27,
+            "cwe": "CWE-319",
+            "snippet": "/// At <http://localhost:23119/libraries/{id}/map>"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/model/entry/LinkedFileTest.java",
+            "line": 12,
+            "cwe": "CWE-319",
+            "snippet": "\"http://example.com/paper.pdf, true\","
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/model/entry/identifier/ArXivIdentifierTest.java",
+            "line": 78,
+            "cwe": "CWE-319",
+            "snippet": "Optional<ArXivIdentifier> parsed = ArXivIdentifier.parse(\"http://arxiv.org/abs/1502.05795\");"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/model/entry/identifier/DOITest.java",
+            "line": 49,
+            "cwe": "CWE-319",
+            "snippet": "Arguments.of(\"10.123/456\", new DOI(\"http://doi.org/urn:doi:10.123/456\").asString()),"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/model/entry/identifier/SSRNTest.java",
+            "line": 29,
+            "cwe": "CWE-319",
+            "snippet": "Arguments.of(true, \"http://ssrn.com/abstract=4904445\")"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/util/io/FileUtilTest.java",
+            "line": 266,
+            "cwe": "CWE-319",
+            "snippet": "test.file, http://www.example.com/test.file"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/util/io/RegExpBasedFileFinderTest.java",
+            "line": 48,
+            "cwe": "CWE-319",
+            "snippet": "entry.setField(StandardField.DOI, \"http://dx.doi.org/10.1287/orsc.14.2.209.14992\");"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/preferences/PreferenceMigrationTest.java",
+            "line": 23,
+            "cwe": "CWE-319",
+            "snippet": "private static final String LEGACY_GROBID_URL = \"http://grobid.jabref.org:8070\";"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/openoffice/ZoteroCitationLinkerTest.java",
+            "line": 20,
+            "cwe": "CWE-319",
+            "snippet": "private static final String ZOTERO_URI = \"http://zotero.org/users/123/items/ABCD1234\";"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/openoffice/ZoteroCitationMarkParserTest.java",
+            "line": 92,
+            "cwe": "CWE-319",
+            "snippet": "\"http://zotero.org/users/123/items/ABCD1234\","
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/openoffice/ZoteroDocumentPreferencesTest.java",
+            "line": 38,
+            "cwe": "CWE-319",
+            "snippet": "private static final String APA_STYLE_ID = \"http://www.zotero.org/styles/apa\";"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/openoffice/ZoteroReferenceMarkTest.java",
+            "line": 60,
+            "cwe": "CWE-319",
+            "snippet": "assertEquals(List.of(\"http://www.jabref.org/Smith2020\"), citationItem.uris);"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/openoffice/oocsltext/CSLFormatUtilsTest.java",
+            "line": 96,
+            "cwe": "CWE-319",
+            "snippet": "\"Text with <a href=\\\"http://example.com\\\">link</a>\""
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/net/URLDownloadTest.java",
+            "line": 31,
+            "cwe": "CWE-319",
+            "snippet": "URLDownload dl = new URLDownload(URLUtil.create(\"http://www.google.com\"));"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/net/URLUtilTest.java",
+            "line": 31,
+            "cwe": "CWE-319",
+            "snippet": "http://dl.acm.org/citation.cfm?id=321811"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/layout/LayoutEntryTest.java",
+            "line": 53,
+            "cwe": "CWE-319",
+            "snippet": "mBTE.setField(new UnknownField(\"citeulike-linkout-1\"), \"http://dx.doi.org/10.1145/1554339.1554341\");"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/layout/LayoutTest.java",
+            "line": 148,
+            "cwe": "CWE-319",
+            "snippet": "/// Test for http://discourse.jabref.org/t/the-wrapfilelinks-formatter/172 (the example in the help files)"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/layout/format/DOICheckTest.java",
+            "line": 31,
+            "cwe": "CWE-319",
+            "snippet": "when(doiPreferences.getDefaultBaseURI()).thenReturn(\"http://example.org\");"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/layout/format/DOIStripTest.java",
+            "line": 28,
+            "cwe": "CWE-319",
+            "snippet": "Arguments.of(\"10.1000/ISBN1-900512-44-0\", \"http://dx.doi.org/10.1000/ISBN1-900512-44-0\"),"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/layout/format/RemoveLatexCommandsFormatterTest.java",
+            "line": 30,
+            "cwe": "CWE-319",
+            "snippet": "'http://pi.informatik.uni-siegen.de/stt/36_2/./03_Technische_Beitraege/ZEUS2016/beitrag_2.pdf' -> 'http://pi.informatik.uni-siegen.de/stt/36\\\\_2/./03\\\\_Technische\\\\_Beitraege/ZEUS2"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/test/java/org/jabref/logic/integrity/HTMLCharacterCheckerTest.java",
+            "line": 44,
+            "cwe": "CWE-319",
+            "snippet": "entry.setField(StandardField.URL, \"http://www.thinkmind.org/index.php?view=article&amp;articleid=cloud_computing_2013_1_20_20130\");"
+          }
+        ]
+      },
+      "A09-LoggingMonitoringFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A10-SSRF": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "owasp_llm_top10": {
+    "total_findings": 14,
+    "files_with_findings": 14,
+    "severity": {
+      "high": 0,
+      "medium": 14,
+      "low": 0
+    },
+    "categories": {
+      "LLM01-PromptInjection": {
+        "count": 14,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "jabsrv/src/test/java/org/jabref/http/server/EntryResourceTest.java",
+            "line": 48,
+            "cwe": "CWE-1336",
+            "snippet": ".resolveTemplate(\"id\", TestBibFile.XSS_SERVER_TEST.id)"
+          },
+          {
+            "severity": "medium",
+            "file": "jablib/src/main/java/org/jabref/logic/preferences/JabRefCliPreferences.java",
+            "line": 2112,
+            "cwe": "CWE-1336",
+            "snippet": "get(AI_CHATTING_SYSTEM_MESSAGE_TEMPLATE, defaultValues.getChattingSystemMessageTemplate()),"
+          },
+          {
+            "severity": "medium",
+            "file": "jablib/src/main/java/org/jabref/logic/importer/plaincitation/PlainCitationParserFactory.java",
+            "line": 36,
+            "cwe": "CWE-1336",
+            "snippet": "return new LlmPlainCitationParser(importFormatPreferences, aiPreferences.getCitationParsingSystemMessageTemplate(), chatModel);"
+          },
+          {
+            "severity": "medium",
+            "file": "jablib/src/main/java/org/jabref/logic/importer/fileformat/pdf/CitationsFromPdf.java",
+            "line": 54,
+            "cwe": "CWE-1336",
+            "snippet": "preferences.getAiPreferences().getCitationParsingSystemMessageTemplate(),"
+          },
+          {
+            "severity": "medium",
+            "file": "jablib/src/main/java/org/jabref/logic/ai/summarization/util/SummarizatorFactory.java",
+            "line": 38,
+            "cwe": "CWE-1336",
+            "snippet": "aiPreferences.getSummarizationChunkSystemMessageTemplate(),"
+          },
+          {
+            "severity": "medium",
+            "file": "jablib/src/main/java/org/jabref/logic/ai/preferences/AiDefaultTemplates.java",
+            "line": 29,
+            "cwe": "CWE-1336",
+            "snippet": "CHATTING_SYSTEM_MESSAGE_TEMPLATE = loadTemplate(\"chatting_system_message\");"
+          },
+          {
+            "severity": "medium",
+            "file": "jablib/src/main/java/org/jabref/logic/ai/preferences/AiPreferences.java",
+            "line": 299,
+            "cwe": "CWE-1336",
+            "snippet": "setChattingSystemMessageTemplate(other.getChattingSystemMessageTemplate());"
+          },
+          {
+            "severity": "medium",
+            "file": "jablib/src/main/java/org/jabref/logic/ai/followup/tasks/GenerateFollowUpQuestions.java",
+            "line": 41,
+            "cwe": "CWE-1336",
+            "snippet": "aiPreferences.getFollowUpQuestionsTemplate(),"
+          },
+          {
+            "severity": "medium",
+            "file": "jabgui/src/main/java/org/jabref/gui/preferences/websearch/SearchEngineItem.java",
+            "line": 27,
+            "cwe": "CWE-1336",
+            "snippet": "public String getUrlTemplate() {"
+          },
+          {
+            "severity": "medium",
+            "file": "jabgui/src/main/java/org/jabref/gui/preferences/ai/AiTab.java",
+            "line": 341,
+            "cwe": "CWE-1336",
+            "snippet": "private void resetCurrentTemplate() {"
+          },
+          {
+            "severity": "medium",
+            "file": "jabgui/src/main/java/org/jabref/gui/preferences/ai/AiTabViewModel.java",
+            "line": 460,
+            "cwe": "CWE-1336",
+            "snippet": "chattingSystemMessageTemplate.set(workingAiPreferences.getChattingSystemMessageTemplate());"
+          },
+          {
+            "severity": "medium",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/summary/AiSummaryParametersViewModel.java",
+            "line": 30,
+            "cwe": "CWE-1336",
+            "snippet": "aiPreferences.getSummarizationChunkSystemMessageTemplate(),"
+          },
+          {
+            "severity": "medium",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/summary/AiSummaryShowingViewModel.java",
+            "line": 86,
+            "cwe": "CWE-1336",
+            "snippet": "AiSummaryMarkdownExporter exporter = new AiSummaryMarkdownExporter(entryTypesManager, fieldPreferences, aiPreferences.getMarkdownChatExportTemplate());"
+          },
+          {
+            "severity": "medium",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/chat/AiChatStatusViewModel.java",
+            "line": 237,
+            "cwe": "CWE-1336",
+            "snippet": "AiChatMarkdownExporter exporter = new AiChatMarkdownExporter(entryTypesManager, fieldPreferences, aiPreferences.getMarkdownChatExportTemplate());"
+          }
+        ]
+      },
+      "LLM02-SensitiveInfoDisclosure": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM03-SupplyChain": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM04-DataPoisoning": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM05-ImproperOutputHandling": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM06-ExcessiveAgency": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM07-SystemPromptLeak": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM08-VectorEmbeddingWeaknesses": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM09-Misinformation": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM10-UnboundedConsumption": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "sbom": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.5",
+    "serialNumber": "urn:uuid:4fa79221-af15-5b73-ae46-2e290cde4828",
+    "version": 1,
+    "metadata": {
+      "timestamp": "2026-10-06T06:59:57Z",
+      "component": {
+        "type": "application",
+        "name": "JABREF",
+        "version": "338a4d5b8eef",
+        "bom-ref": "pkg:generic/anticloud/JABREF@338a4d5b8eef",
+        "purl": "pkg:generic/anticloud/JABREF@338a4d5b8eef",
+        "licenses": [
+          {
+            "license": {
+              "id": "MIT"
+            }
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "anticloud:source-commit",
+          "value": "338a4d5b8eef781e401150e1195a38505922be8e"
+        },
+        {
+          "name": "anticloud:source-url",
+          "value": "https://github.com/JabRef/jabref"
+        },
+        {
+          "name": "anticloud:tier",
+          "value": "tier-agent"
+        }
+      ]
+    },
+    "components": [
+      {
+        "type": "library",
+        "name": "textlint",
+        "version": "^15.7.1",
+        "purl": "pkg:npm/textlint@^15.7.1",
+        "bom-ref": "npm/textlint@^15.7.1"
+      },
+      {
+        "type": "library",
+        "name": "textlint-rule-common-misspellings",
+        "version": "^1.0.1",
+        "purl": "pkg:npm/textlint-rule-common-misspellings@^1.0.1",
+        "bom-ref": "npm/textlint-rule-common-misspellings@^1.0.1"
+      }
+    ]
+  },
+  "elapsed_seconds": 309.24
+}

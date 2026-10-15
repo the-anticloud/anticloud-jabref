@@ -1,0 +1,53 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:4fa79221-af15-5b73-ae46-2e290cde4828",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-05T15:06:44Z",
+    "component": {
+      "type": "application",
+      "name": "JABREF",
+      "version": "338a4d5b8eef",
+      "bom-ref": "pkg:generic/anticloud/JABREF@338a4d5b8eef",
+      "purl": "pkg:generic/anticloud/JABREF@338a4d5b8eef",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "anticloud:source-commit",
+        "value": "338a4d5b8eef781e401150e1195a38505922be8e"
+      },
+      {
+        "name": "anticloud:source-url",
+        "value": "https://github.com/JabRef/jabref"
+      },
+      {
+        "name": "anticloud:tier",
+        "value": "tier-agent"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "textlint",
+      "version": "^15.7.1",
+      "purl": "pkg:npm/textlint@^15.7.1",
+      "bom-ref": "npm/textlint@^15.7.1"
+    },
+    {
+      "type": "library",
+      "name": "textlint-rule-common-misspellings",
+      "version": "^1.0.1",
+      "purl": "pkg:npm/textlint-rule-common-misspellings@^1.0.1",
+      "bom-ref": "npm/textlint-rule-common-misspellings@^1.0.1"
+    }
+  ]
+}

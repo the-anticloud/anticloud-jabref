@@ -1,0 +1,758 @@
+{
+  "schema": "anticloud.tier-bench/1",
+  "project": "JABREF",
+  "source": {
+    "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\ANTICLOUD_REPOS\\ACADEMIA_RD\\JABREF\\UPSTREAM_CLONE",
+    "git": {
+      "head": "338a4d5b8eef781e401150e1195a38505922be8e",
+      "url": "https://github.com/JabRef/jabref",
+      "branch": "main",
+      "committed_at": "2026-10-02T00:11:30+02:00"
+    }
+  },
+  "metrics": {
+    "files_total": 2916,
+    "source_files_scanned": 2275,
+    "lines_of_code": 259822,
+    "languages": {
+      ".java": 2255,
+      ".layout": 160,
+      ".fxml": 95,
+      ".yml": 75,
+      "(none)": 48,
+      ".properties": 40,
+      ".md": 39,
+      ".kts": 28,
+      ".json": 19,
+      ".txt": 16,
+      ".xml": 12,
+      ".pdf": 11,
+      ".sh": 9,
+      ".png": 9,
+      ".vm": 9
+    }
+  },
+  "licence": {
+    "spdx": "MIT",
+    "class": "A",
+    "source_file": "LICENSE",
+    "redistribution_allowed": true
+  },
+  "dependencies": {
+    "count": 2,
+    "unique": 2,
+    "by_ecosystem": {
+      "npm": 2
+    },
+    "list": [
+      {
+        "ecosystem": "npm",
+        "name": "textlint",
+        "version": "^15.7.1",
+        "source_file": "package.json",
+        "raw": ""
+      },
+      {
+        "ecosystem": "npm",
+        "name": "textlint-rule-common-misspellings",
+        "version": "^1.0.1",
+        "source_file": "package.json",
+        "raw": ""
+      }
+    ]
+  },
+  "owasp_top10": {
+    "total_findings": 352,
+    "files_with_findings": 337,
+    "severity": {
+      "high": 10,
+      "medium": 3,
+      "low": 339
+    },
+    "categories": {
+      "A01-BrokenAccessControl": {
+        "count": 0,
+        "findings": []
+      },
+      "A02-CryptographicFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A03-Injection": {
+        "count": 8,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "jabgui/src/main/java/org/jabref/gui/desktop/os/Linux.java",
+            "line": 46,
+            "cwe": "CWE-95",
+            "snippet": "Runtime.getRuntime().exec(cmd);"
+          },
+          {
+            "severity": "high",
+            "file": "jabgui/src/main/java/org/jabref/gui/desktop/os/OSX.java",
+            "line": 28,
+            "cwe": "CWE-95",
+            "snippet": "Runtime.getRuntime().exec(cmd);"
+          },
+          {
+            "severity": "high",
+            "file": "jabgui/src/main/java/org/jabref/gui/entryeditor/UserDefinedFieldsTab.java",
+            "line": 109,
+            "cwe": "CWE-120",
+            "snippet": "// which editor implementation a field gets (FieldEditors.getForField chooses per entry"
+          },
+          {
+            "severity": "medium",
+            "file": "jabgui/src/main/java/org/jabref/gui/externalfiles/ImportHandler.java",
+            "line": 315,
+            "cwe": "CWE-89",
+            "snippet": "Localization.lang(\"No importable data was found in %0. An empty entry was created with file link.\", importResult.format())\n                                + \" \""
+          },
+          {
+            "severity": "medium",
+            "file": "jabgui/src/main/java/org/jabref/gui/groups/GroupTreeView.java",
+            "line": 697,
+            "cwe": "CWE-89",
+            "snippet": "return new DecimalFormat(\"#,##0.#\").format(millions) + \"m\";"
+          },
+          {
+            "severity": "high",
+            "file": "jabgui/src/main/java/org/jabref/gui/openoffice/Bootstrap.java",
+            "line": 275,
+            "cwe": "CWE-95",
+            "snippet": "Process p = Runtime.getRuntime().exec(cmdArray);"
+          },
+          {
+            "severity": "medium",
+            "file": "jablib/src/main/java/org/jabref/logic/exporter/AcademicPagesExporter.java",
+            "line": 248,
+            "cwe": "CWE-89",
+            "snippet": "return DateTimeFormatter.ofPattern(\"uuuu-MM\").format(temporal) + \"-01\";"
+          },
+          {
+            "severity": "high",
+            "file": "jablib/src/main/java/org/jabref/logic/search/query/SearchToSqlVisitor.java",
+            "line": 88,
+            "cwe": "CWE-89",
+            "snippet": "children.stream().map(node -> \"    SELECT %s FROM %s\".formatted(ENTRY_ID, node.cte())).collect(Collectors.joining(\"\\n    INTERSECT\\n\")));"
+          }
+        ]
+      },
+      "A04-InsecureDesign": {
+        "count": 275,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/module-info.java",
+            "line": 34,
+            "cwe": "CWE-",
+            "snippet": "provides com.airhacks.afterburner.views.ResourceLocator"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/Launcher.java",
+            "line": 31,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.injection.Injector;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/JabRefDialogService.java",
+            "line": 463,
+            "cwe": "CWE-",
+            "snippet": "// TODO: Change to a notification overview instead of event log when that is available."
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/JabRefGUI.java",
+            "line": 65,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.injection.Injector;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/LibraryTab.java",
+            "line": 118,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.injection.Injector;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/actions/ActionFactory.java",
+            "line": 20,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.injection.Injector;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/actions/ActionHelper.java",
+            "line": 27,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.injection.Injector;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/actions/StandardActions.java",
+            "line": 198,
+            "cwe": "CWE-",
+            "snippet": "OPEN_MASTODON(\"Mastodon\", Localization.lang(\"Opens JabRef's Mastodon page\"), IconTheme.JabRefIcons.MASTODON),"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/AiPrivacyNoticeView.java",
+            "line": 20,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ViewLoader;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/chat/AiChatMessageView.java",
+            "line": 30,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ViewLoader;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/chat/AiChatStatusView.java",
+            "line": 32,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ViewLoader;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/chat/AiChatStatusWindow.java",
+            "line": 15,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ViewLoader;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/chat/AiChatView.java",
+            "line": 31,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ViewLoader;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/chat/AiEntryChatView.java",
+            "line": 12,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ViewLoader;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/chat/AiGroupChatView.java",
+            "line": 13,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ViewLoader;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/chat/AiGroupChatWindow.java",
+            "line": 14,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ViewLoader;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/statuspane/UniversalStatusPaneView.java",
+            "line": 16,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ViewLoader;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/summary/AiSummaryParametersDialog.java",
+            "line": 11,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ViewLoader;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/summary/AiSummaryParametersView.java",
+            "line": 14,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ViewLoader;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/summary/AiSummaryShowingView.java",
+            "line": 32,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ViewLoader;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/summary/AiSummaryView.java",
+            "line": 21,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ViewLoader;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/auximport/FromAuxDialog.java",
+            "line": 20,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ViewLoader;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/cleanup/CleanupDialog.java",
+            "line": 27,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ViewLoader;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/cleanup/CleanupFileRelatedPanel.java",
+            "line": 19,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ViewLoader;"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/cleanup/CleanupJournalRelatedPanel.java",
+            "line": 15,
+            "cwe": "CWE-",
+            "snippet": "import com.airhacks.afterburner.views.ViewLoader;"
+          }
+        ]
+      },
+      "A05-SecurityMisconfiguration": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "jabsrv/src/main/java/org/jabref/http/server/CORSFilter.java",
+            "line": 12,
+            "cwe": "CWE-942",
+            "snippet": "responseContext.getHeaders().add(\"Access-Control-Allow-Origin\", \"*\");"
+          }
+        ]
+      },
+      "A06-VulnerableComponents": {
+        "count": 0,
+        "findings": []
+      },
+      "A07-AuthFailures": {
+        "count": 4,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "jablib/src/main/java/org/jabref/logic/net/ssl/TrustStoreManager.java",
+            "line": 34,
+            "cwe": "CWE-798",
+            "snippet": "private static final String STORE_PASSWORD = \"changeit\";"
+          },
+          {
+            "severity": "high",
+            "file": "jablib/src/main/java/org/jabref/logic/preferences/JabRefCliPreferences.java",
+            "line": 343,
+            "cwe": "CWE-798",
+            "snippet": "// PROXY_PASSWORD = \"proxyPassword\" handled by KeyRing"
+          },
+          {
+            "severity": "high",
+            "file": "jablib/src/main/java/org/jabref/logic/shared/DBMSConnectionUrl.java",
+            "line": 89,
+            "cwe": "CWE-798",
+            "snippet": "/// libpq keyword form as shown by some providers: `host=db.example.org port=5432 dbname=lib user=me password='p w'`."
+          },
+          {
+            "severity": "high",
+            "file": "jablib/src/main/java/org/jabref/logic/shared/prefs/SharedDatabasePreferences.java",
+            "line": 31,
+            "cwe": "CWE-798",
+            "snippet": "private static final String SHARED_DATABASE_PASSWORD = \"sharedDatabasePassword\";"
+          }
+        ]
+      },
+      "A08-SoftwareDataIntegrity": {
+        "count": 64,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/entryeditor/RelatedArticlesTab.java",
+            "line": 211,
+            "cwe": "CWE-319",
+            "snippet": "NativeDesktop.openBrowser(\"http://mr-dlib.org/information-for-users/information-about-mr-dlib-for-jabref-users/\", preferences.getExternalApplicationsPreferences());"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/groups/GroupTreeView.java",
+            "line": 545,
+            "cwe": "CWE-319",
+            "snippet": "// see http://programmingtipsandtraps.blogspot.com/2015/10/drag-and-drop-in-treetableview-with.html"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/openoffice/Bootstrap.java",
+            "line": 8,
+            "cwe": "CWE-319",
+            "snippet": "* file, You can obtain one at http://mozilla.org/MPL/2.0/."
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/java/org/jabref/gui/preferences/network/NetworkTabViewModel.java",
+            "line": 232,
+            "cwe": "CWE-319",
+            "snippet": "final String testUrl = \"http://jabref.org\";"
+          },
+          {
+            "severity": "low",
+            "file": "jabgui/src/main/resources/icons/generate-dynamic-icns.py",
+            "line": 13,
+            "cwe": "CWE-319",
+            "snippet": "SVG = \"{http://www.w3.org/2000/svg}\""
+          },
+          {
+            "severity": "low",
+            "file": "jabkit/src/main/java/org/jabref/toolkit/commands/InputOption.java",
+            "line": 39,
+            "cwe": "CWE-319",
+            "snippet": "/// Both forms also accept an `http://`, `https://`, or `ftp://` URL, which is downloaded to a"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/browserext/BrowserExtensionBridgeClient.java",
+            "line": 83,
+            "cwe": "CWE-319",
+            "snippet": ".uri(new URI(\"http://127.0.0.1:%d/v1/mathscinet/open\".formatted(bridge.port())))"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/cleanup/CleanupPreferences.java",
+            "line": 95,
+            "cwe": "CWE-319",
+            "snippet": "// Removes the http://... for each DOI. Moves DOIs from URL and NOTE filed to DOI field."
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/exporter/EndnoteXmlExporter.java",
+            "line": 303,
+            "cwe": "CWE-319",
+            "snippet": "transformer.setOutputProperty(\"{http://xml.apache.org/xslt}indent-amount\", \"2\");"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/exporter/ModsExporter.java",
+            "line": 41,
+            "cwe": "CWE-319",
+            "snippet": "private static final String MODS_NAMESPACE_URI = \"http://www.loc.gov/mods/v3\";"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/exporter/OOCalcDatabase.java",
+            "line": 102,
+            "cwe": "CWE-319",
+            "snippet": "root.setAttribute(\"xmlns:office\", \"http://openoffice.org/2000/office\");"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/exporter/OpenDocumentRepresentation.java",
+            "line": 64,
+            "cwe": "CWE-319",
+            "snippet": "// collection.setAttribute(\"xmlns\", \"http://openoffice.org/2000/office\");"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/importer/FulltextFetcher.java",
+            "line": 15,
+            "cwe": "CWE-319",
+            "snippet": "/// See e.g. @link{http://libguides.mit.edu/apis}."
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/importer/fetcher/ArXivFetcher.java",
+            "line": 467,
+            "cwe": "CWE-319",
+            "snippet": "private static final String DISALLOW_DOCTYPE_DECLARATION = \"http://apache.org/xml/features/disallow-doctype-decl\";"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/importer/fetcher/BvbFetcher.java",
+            "line": 20,
+            "cwe": "CWE-319",
+            "snippet": "private static final String URL_PATTERN = \"http://bvbr.bib-bvb.de:5661/bvb01sru?\";"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/importer/fetcher/CollectionOfComputerScienceBibliographiesFetcher.java",
+            "line": 30,
+            "cwe": "CWE-319",
+            "snippet": "private static final String BASIC_SEARCH_URL = \"http://liinwww.ira.uka.de/bibliography/rss?\";"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/importer/fetcher/DiVA.java",
+            "line": 17,
+            "cwe": "CWE-319",
+            "snippet": "* http://www.diva-portal.org/smash/aboutdiva.jsf?dswid=-3222"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/importer/fetcher/ISIDOREFetcher.java",
+            "line": 47,
+            "cwe": "CWE-319",
+            "snippet": "private static final String DISALLOW_DOCTYPE_DECLARATION = \"http://apache.org/xml/features/disallow-doctype-decl\";"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/importer/fetcher/JstorFetcher.java",
+            "line": 66,
+            "cwe": "CWE-319",
+            "snippet": "identifier = identifier.replace(\"http://www.jstor.org/stable\", \"\");"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/importer/fetcher/MathSciNet.java",
+            "line": 47,
+            "cwe": "CWE-319",
+            "snippet": "/// Fetches data from the <a href=\"http://www.ams.org/mathscinet\">MathSciNet</a> API."
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/importer/fetcher/MedlineFetcher.java",
+            "line": 48,
+            "cwe": "CWE-319",
+            "snippet": "/// Fetch or search from PubMed <a href=\"http://www.ncbi.nlm.nih.gov/sites/entrez/\">www.ncbi.nlm.nih.gov</a>"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/importer/fetcher/OpenAccessDoi.java",
+            "line": 25,
+            "cwe": "CWE-319",
+            "snippet": "/// API is documented at http://unpaywall.org/api/v2"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/importer/fileformat/BiblioscapeImporter.java",
+            "line": 24,
+            "cwe": "CWE-319",
+            "snippet": "/// http://www.biblioscape.com/download/Biblioscape8.pdf Several"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/importer/fileformat/CopacImporter.java",
+            "line": 25,
+            "cwe": "CWE-319",
+            "snippet": "/// Documentation can be found online at: <a href=\"http://copac.ac.uk/faq/#format\">http://copac.ac.uk/faq/#format</a>"
+          },
+          {
+            "severity": "low",
+            "file": "jablib/src/main/java/org/jabref/logic/importer/fileformat/EndnoteImporter.java",
+            "line": 33,
+            "cwe": "CWE-319",
+            "snippet": "/// <a href=\"http://libguides.csuchico.edu/c.php?g=414245&p=2822898\">...</a>"
+          }
+        ]
+      },
+      "A09-LoggingMonitoringFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A10-SSRF": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "owasp_llm_top10": {
+    "total_findings": 13,
+    "files_with_findings": 13,
+    "severity": {
+      "high": 0,
+      "medium": 13,
+      "low": 0
+    },
+    "categories": {
+      "LLM01-PromptInjection": {
+        "count": 13,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/chat/AiChatStatusViewModel.java",
+            "line": 237,
+            "cwe": "CWE-1336",
+            "snippet": "AiChatMarkdownExporter exporter = new AiChatMarkdownExporter(entryTypesManager, fieldPreferences, aiPreferences.getMarkdownChatExportTemplate());"
+          },
+          {
+            "severity": "medium",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/summary/AiSummaryParametersViewModel.java",
+            "line": 30,
+            "cwe": "CWE-1336",
+            "snippet": "aiPreferences.getSummarizationChunkSystemMessageTemplate(),"
+          },
+          {
+            "severity": "medium",
+            "file": "jabgui/src/main/java/org/jabref/gui/ai/summary/AiSummaryShowingViewModel.java",
+            "line": 86,
+            "cwe": "CWE-1336",
+            "snippet": "AiSummaryMarkdownExporter exporter = new AiSummaryMarkdownExporter(entryTypesManager, fieldPreferences, aiPreferences.getMarkdownChatExportTemplate());"
+          },
+          {
+            "severity": "medium",
+            "file": "jabgui/src/main/java/org/jabref/gui/preferences/ai/AiTab.java",
+            "line": 341,
+            "cwe": "CWE-1336",
+            "snippet": "private void resetCurrentTemplate() {"
+          },
+          {
+            "severity": "medium",
+            "file": "jabgui/src/main/java/org/jabref/gui/preferences/ai/AiTabViewModel.java",
+            "line": 460,
+            "cwe": "CWE-1336",
+            "snippet": "chattingSystemMessageTemplate.set(workingAiPreferences.getChattingSystemMessageTemplate());"
+          },
+          {
+            "severity": "medium",
+            "file": "jabgui/src/main/java/org/jabref/gui/preferences/websearch/SearchEngineItem.java",
+            "line": 27,
+            "cwe": "CWE-1336",
+            "snippet": "public String getUrlTemplate() {"
+          },
+          {
+            "severity": "medium",
+            "file": "jablib/src/main/java/org/jabref/logic/ai/followup/tasks/GenerateFollowUpQuestions.java",
+            "line": 41,
+            "cwe": "CWE-1336",
+            "snippet": "aiPreferences.getFollowUpQuestionsTemplate(),"
+          },
+          {
+            "severity": "medium",
+            "file": "jablib/src/main/java/org/jabref/logic/ai/preferences/AiDefaultTemplates.java",
+            "line": 29,
+            "cwe": "CWE-1336",
+            "snippet": "CHATTING_SYSTEM_MESSAGE_TEMPLATE = loadTemplate(\"chatting_system_message\");"
+          },
+          {
+            "severity": "medium",
+            "file": "jablib/src/main/java/org/jabref/logic/ai/preferences/AiPreferences.java",
+            "line": 299,
+            "cwe": "CWE-1336",
+            "snippet": "setChattingSystemMessageTemplate(other.getChattingSystemMessageTemplate());"
+          },
+          {
+            "severity": "medium",
+            "file": "jablib/src/main/java/org/jabref/logic/ai/summarization/util/SummarizatorFactory.java",
+            "line": 38,
+            "cwe": "CWE-1336",
+            "snippet": "aiPreferences.getSummarizationChunkSystemMessageTemplate(),"
+          },
+          {
+            "severity": "medium",
+            "file": "jablib/src/main/java/org/jabref/logic/importer/fileformat/pdf/CitationsFromPdf.java",
+            "line": 54,
+            "cwe": "CWE-1336",
+            "snippet": "preferences.getAiPreferences().getCitationParsingSystemMessageTemplate(),"
+          },
+          {
+            "severity": "medium",
+            "file": "jablib/src/main/java/org/jabref/logic/importer/plaincitation/PlainCitationParserFactory.java",
+            "line": 36,
+            "cwe": "CWE-1336",
+            "snippet": "return new LlmPlainCitationParser(importFormatPreferences, aiPreferences.getCitationParsingSystemMessageTemplate(), chatModel);"
+          },
+          {
+            "severity": "medium",
+            "file": "jablib/src/main/java/org/jabref/logic/preferences/JabRefCliPreferences.java",
+            "line": 2112,
+            "cwe": "CWE-1336",
+            "snippet": "get(AI_CHATTING_SYSTEM_MESSAGE_TEMPLATE, defaultValues.getChattingSystemMessageTemplate()),"
+          }
+        ]
+      },
+      "LLM02-SensitiveInfoDisclosure": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM03-SupplyChain": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM04-DataPoisoning": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM05-ImproperOutputHandling": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM06-ExcessiveAgency": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM07-SystemPromptLeak": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM08-VectorEmbeddingWeaknesses": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM09-Misinformation": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM10-UnboundedConsumption": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "sbom": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.5",
+    "serialNumber": "urn:uuid:4fa79221-af15-5b73-ae46-2e290cde4828",
+    "version": 1,
+    "metadata": {
+      "timestamp": "2026-10-05T15:06:44Z",
+      "component": {
+        "type": "application",
+        "name": "JABREF",
+        "version": "338a4d5b8eef",
+        "bom-ref": "pkg:generic/anticloud/JABREF@338a4d5b8eef",
+        "purl": "pkg:generic/anticloud/JABREF@338a4d5b8eef",
+        "licenses": [
+          {
+            "license": {
+              "id": "MIT"
+            }
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "anticloud:source-commit",
+          "value": "338a4d5b8eef781e401150e1195a38505922be8e"
+        },
+        {
+          "name": "anticloud:source-url",
+          "value": "https://github.com/JabRef/jabref"
+        },
+        {
+          "name": "anticloud:tier",
+          "value": "tier-agent"
+        }
+      ]
+    },
+    "components": [
+      {
+        "type": "library",
+        "name": "textlint",
+        "version": "^15.7.1",
+        "purl": "pkg:npm/textlint@^15.7.1",
+        "bom-ref": "npm/textlint@^15.7.1"
+      },
+      {
+        "type": "library",
+        "name": "textlint-rule-common-misspellings",
+        "version": "^1.0.1",
+        "purl": "pkg:npm/textlint-rule-common-misspellings@^1.0.1",
+        "bom-ref": "npm/textlint-rule-common-misspellings@^1.0.1"
+      }
+    ]
+  },
+  "elapsed_seconds": 669.71
+}
